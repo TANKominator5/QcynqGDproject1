@@ -5,12 +5,12 @@ public partial class Plane1_GravityPhysics : RigidBody3D
     Transform3D transform;
     public float Thrust = 0.0f;
     double deltaTime = 0.0;
-    public float LiftStrength = 0.8f;
-    public float torqueStrength = 5f;
-    public float WingOffsetSide = 1.2f; // Distance of wings from center
+    public float LiftStrength = 0.5f;
+    public float torqueStrength = 4f;
+    public float WingOffsetSide = 2.2f; // Distance of wings from center
     public float nosePos = 1.7f;
     public float applyForce = 0;
-    public float airFrictionStrength = 0.01f;
+    public float airFrictionStrength = 2.3f;
     public Vector3 planeScale = new Vector3(1.0f, 1.0f, 1.0F);
     Vector3 upVec = new Vector3(0.0f, 1.0f, 0.0f);
     Vector3 engine = new Vector3(1.6f, 0, 0);
@@ -20,15 +20,16 @@ public partial class Plane1_GravityPhysics : RigidBody3D
         transform = Transform;
         // Get forward speed
         Vector3 velocity = LinearVelocity;
+        Vector3 velocity_xy = new Vector3(LinearVelocity.X, 0, LinearVelocity.Z);
         Vector3 forward = -GlobalTransform.Basis.X;
-        forward = forward.Normalized();
 
         // Only forward component
-        float speed = velocity.Dot(forward);
+        float speed = velocity.Length();
+        float speed_xy = velocity_xy.Length();
 
         // Apply upward lift force at each wing
         Vector3 torque = GlobalTransform.Basis.Y * torqueStrength;
-        Vector3 lift = upVec * speed * speed * LiftStrength;
+        Vector3 lift = upVec * speed_xy * speed_xy * LiftStrength;
         Vector3 airFriction = speed * airFrictionStrength  * (-LinearVelocity.Normalized());
 
         // Wing positions in local space
@@ -44,13 +45,13 @@ public partial class Plane1_GravityPhysics : RigidBody3D
 
         if (Input.IsActionPressed("Key_T"))
         {
-            if (Thrust <= 6000)
+            if (Thrust <= 500)
             {
                 deltaTime += delta;
-                if (deltaTime >= 0.1)
+                if (deltaTime >= 0.3)
                 {
                     Thrust += 10f;
-                    deltaTime -= 0.05;
+                    deltaTime -= 0.2;
                 }
                 applyForce = 0.01f;
             }
@@ -60,10 +61,10 @@ public partial class Plane1_GravityPhysics : RigidBody3D
             if (Thrust > 0)
             {
                 deltaTime += delta;
-                if (deltaTime >= 0.1)
+                if (deltaTime >= 0.3)
                 {
                     Thrust -= 10f;
-                    deltaTime -= 0.05;
+                    deltaTime -= 0.2;
                 }
             }
         }
@@ -78,22 +79,22 @@ public partial class Plane1_GravityPhysics : RigidBody3D
         if (Input.IsActionPressed("Key_W"))
         {
             //transform.Basis = transform.Basis.Rotated(transform.Basis.Z.Normalized(), (float)(delta));
-            ApplyForce(-torque * 0.4f, noseGlobal - GlobalTransform.Origin);
+            ApplyForce(-torque, noseGlobal - GlobalTransform.Origin);
         }
         if (Input.IsActionPressed("Key_S"))
         {
             //transform.Basis = transform.Basis.Rotated(transform.Basis.Z.Normalized(), (float)(-delta));
-            ApplyForce(torque * 0.8f, noseGlobal - GlobalTransform.Origin);
+            ApplyForce(torque, noseGlobal - GlobalTransform.Origin);
         }
         if (Input.IsActionPressed("Key_D"))
         {
             //transform.Basis = transform.Basis.Rotated(transform.Basis.X.Normalized(), (float)(-delta));
-            ApplyForce(torque * 0.65f, rightWingGlobal - GlobalTransform.Origin);
+            ApplyForce(torque, rightWingGlobal - GlobalTransform.Origin);
         }
         if (Input.IsActionPressed("Key_A"))
         {
             //transform.Basis = transform.Basis.Rotated(transform.Basis.X.Normalized(), (float)(delta));
-            ApplyForce(torque * 0.65f, leftWingGlobal - GlobalTransform.Origin);
+            ApplyForce(torque, leftWingGlobal - GlobalTransform.Origin);
         }
         if (lift.Length() <= 150)
             ApplyCentralForce(lift);

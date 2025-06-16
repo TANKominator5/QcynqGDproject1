@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cy5p4gudxw2oa"]
 
-[ext_resource type="PackedScene" uid="uid://cnxy4cpbtfhea" path="res://plane1.tscn" id="1_glv2v"]
+[ext_resource type="PackedScene" uid="uid://cnxy4cpbtfhea" path="res://Plane1.tscn" id="1_glv2v"]
 [ext_resource type="PackedScene" uid="uid://d3xead8kuliu3" path="res://Ground.tscn" id="2_uu6xs"]
 [ext_resource type="Script" uid="uid://co5ihfqygr5ap" path="res://scripts/camera_scripts/camera1.cs" id="4_cm0pq"]
 
@@ -32,24 +32,22 @@ directional_shadow_max_distance = 150.0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_r0du0")
 
-[node name="Ground" parent="." instance=ExtResource("2_uu6xs")]
-transform = Transform3D(-2.18557e-06, 0, 50, 0, 50, 0, -50, 0, -2.18557e-06, -1334.77, -48.1783, 4.00648)
-
 [node name="OurPlane" type="Node3D" parent="."]
-transform = Transform3D(0.167, 0, 0, 0, 0.167, 0, 0, 0, 0.167, -7.23171, -32.4015, 2.82033)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.43791, 0.151632, 1.35726)
 
 [node name="Plane1" parent="OurPlane" instance=ExtResource("1_glv2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-disable_mode = 2
 
 [node name="SpringArm3D" type="SpringArm3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.3115, -32.4018, 2.82033)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.43791, 0.151632, 1.35726)
 shape = SubResource("SeparationRayShape3D_r0du0")
+spring_length = 0.4
 script = ExtResource("4_cm0pq")
 target = NodePath("../OurPlane/Plane1")
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
-transform = Transform3D(0.166667, 0, 0, 0, 0.166667, 0, 0, 0, 0.166667, 0, 0, 1.0805)
+transform = Transform3D(0.166666, 0, 0, 0, 0.166666, 0, 0, 0, 0.166666, 0, 0, -1.05255)
 rotation_edit_mode = 1
 doppler_tracking = 2
-far = 10000.0
+
+[node name="Ground" parent="." instance=ExtResource("2_uu6xs")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)

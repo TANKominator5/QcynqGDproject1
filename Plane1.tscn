@@ -27,7 +27,7 @@ data = PackedVector3Array(1.2014, -0.2025, 0.3125, 1.625, -0.1638, 0.1562, 1.201
 
 [node name="RigidBody3D" type="RigidBody3D"]
 disable_mode = 2
-mass = 10.0
+mass = 6.0
 physics_material_override = SubResource("PhysicsMaterial_ctope")
 center_of_mass_mode = 1
 center_of_mass = Vector3(-1, 0, 0)

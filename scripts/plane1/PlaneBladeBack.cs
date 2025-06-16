@@ -15,17 +15,17 @@ public partial class PlaneBladeBack : Node3D
 		if(Input.IsActionPressed("Key_T")){
 			if(angVel <= 0.7){
 			deltaTime += delta;
-			if(deltaTime >= 0.2){
+			if(deltaTime >= 0.3){
 				 angVel += delta * angAcc;
-				 deltaTime -= 0.15;
+				 deltaTime -= 0.2;
 				}
 			}
 		}
 		if(Input.IsActionPressed("Key_G")){
 			deltaTime += delta;
-			if(deltaTime >= 0.2 && angVel > 0.0){
+			if(deltaTime >= 0.3 && angVel > 0.0){
 				 angVel -= delta * angAcc;
-				deltaTime -= 0.15;
+				deltaTime -= 0.2;
 				}
 		}
 		transform = transform.Orthonormalized();
