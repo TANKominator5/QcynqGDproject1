@@ -1,0 +1,10 @@
+CollisionShape3D
+RigidBody3D
+Node3D
+Node
+SpringArm3D
+StaticBody3D
+MeshInstance3D
+WorldEnvironment
+Camera3D
+CollisionPolygon3D

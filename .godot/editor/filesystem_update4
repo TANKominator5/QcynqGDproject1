@@ -1,0 +1,12 @@
+res://plane1.tscn
+res://Main.tscn
+res://Ground.tscn
+res://scripts/camera_scripts/camera1.cs
+res://scripts/plane1/PlaneBladeFront.cs
+res://scripts/plane1/PlaneBladeBack.cs
+res://scripts/plane1/Plane1.cs
+res://Plane1.tscn
+res://scripts/plane1/Plane1_2.cs
+res://Plane1_2.tscn
+res://scripts/plane1/Plane1_GravityPhysics.cs
+res://scripts/camera_scripts/followPlane.cs

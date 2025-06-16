@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://cy5p4gudxw2oa"]
+
+[ext_resource type="PackedScene" uid="uid://cnxy4cpbtfhea" path="res://plane1.tscn" id="1_glv2v"]
+[ext_resource type="PackedScene" uid="uid://d3xead8kuliu3" path="res://Ground.tscn" id="2_uu6xs"]
+[ext_resource type="Script" uid="uid://co5ihfqygr5ap" path="res://scripts/camera_scripts/camera1.cs" id="4_cm0pq"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_glv2v"]
+
+[sub_resource type="Sky" id="Sky_uu6xs"]
+sky_material = SubResource("PhysicalSkyMaterial_glv2v")
+
+[sub_resource type="Environment" id="Environment_r0du0"]
+background_mode = 2
+background_color = Color(0.118581, 0.118581, 0.118581, 1)
+sky = SubResource("Sky_uu6xs")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_r0du0"]
+
+[node name="Main" type="Node3D"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.791876, 0.335681, -0.510148, 0.371443, 0.398324, 0.838671, 0.48473, -0.853614, 0.190737, 1.63996, 1.08515, -2.01891)
+shadow_enabled = true
+shadow_bias = 0.0
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 1.0
+directional_shadow_max_distance = 150.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r0du0")
+
+[node name="Ground" parent="." instance=ExtResource("2_uu6xs")]
+transform = Transform3D(-2.18557e-06, 0, 50, 0, 50, 0, -50, 0, -2.18557e-06, -1334.77, -48.1783, 4.00648)
+
+[node name="OurPlane" type="Node3D" parent="."]
+transform = Transform3D(0.167, 0, 0, 0, 0.167, 0, 0, 0, 0.167, -7.23171, -32.4015, 2.82033)
+
+[node name="Plane1" parent="OurPlane" instance=ExtResource("1_glv2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+disable_mode = 2
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7.3115, -32.4018, 2.82033)
+shape = SubResource("SeparationRayShape3D_r0du0")
+script = ExtResource("4_cm0pq")
+target = NodePath("../OurPlane/Plane1")
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+transform = Transform3D(0.166667, 0, 0, 0, 0.166667, 0, 0, 0, 0.166667, 0, 0, 1.0805)
+rotation_edit_mode = 1
+doppler_tracking = 2
+far = 10000.0
