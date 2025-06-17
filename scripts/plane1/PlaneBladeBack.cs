@@ -13,7 +13,7 @@ public partial class PlaneBladeBack : Node3D
 	public override void _Process(double delta){
 		transform = Transform;
 		if(Input.IsActionPressed("Key_T")){
-			if(angVel <= 0.7){
+			if(angVel <= 1){
 			deltaTime += delta;
 			if(deltaTime >= 0.3){
 				 angVel += delta * angAcc;

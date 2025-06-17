@@ -5,12 +5,12 @@ public partial class Plane1_GravityPhysics : RigidBody3D
     Transform3D transform;
     public float Thrust = 0.0f;
     double deltaTime = 0.0;
-    public float LiftStrength = 0.5f;
-    public float torqueStrength = 4f;
+    public float LiftStrength = 0.05f;
+    public float torqueStrength = 5f;
     public float WingOffsetSide = 2.2f; // Distance of wings from center
     public float nosePos = 1.7f;
     public float applyForce = 0;
-    public float airFrictionStrength = 2.3f;
+    public float airFrictionStrength = 3f;
     public Vector3 planeScale = new Vector3(1.0f, 1.0f, 1.0F);
     Vector3 upVec = new Vector3(0.0f, 1.0f, 0.0f);
     Vector3 engine = new Vector3(1.6f, 0, 0);
@@ -45,7 +45,7 @@ public partial class Plane1_GravityPhysics : RigidBody3D
 
         if (Input.IsActionPressed("Key_T"))
         {
-            if (Thrust <= 500)
+            if (Thrust <= 550)
             {
                 deltaTime += delta;
                 if (deltaTime >= 0.3)
@@ -96,7 +96,7 @@ public partial class Plane1_GravityPhysics : RigidBody3D
             //transform.Basis = transform.Basis.Rotated(transform.Basis.X.Normalized(), (float)(delta));
             ApplyForce(torque, leftWingGlobal - GlobalTransform.Origin);
         }
-        if (lift.Length() <= 150)
+        if (lift.Length() <= 100)
             ApplyCentralForce(lift);
 
         Vector3 forwardForce = forward * Thrust;

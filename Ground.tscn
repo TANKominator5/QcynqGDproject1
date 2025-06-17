@@ -7,7 +7,7 @@ friction = 0.0
 rough = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dfy80"]
-size = Vector3(22.552, 0.540405, 22.4261)
+size = Vector3(21.6237, 0.540405, 28.695)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tycio"]
 size = Vector3(2.40796, 1.89844, 10.2102)
@@ -24,7 +24,7 @@ mesh = ExtResource("1_dfy80")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3075, -0.229797, 0.366196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77167, -0.229797, -2.76825)
 shape = SubResource("BoxShape3D_dfy80")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]

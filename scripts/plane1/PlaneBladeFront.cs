@@ -13,19 +13,19 @@ public partial class PlaneBladeFront : Node3D
 	public override void _Process(double delta){
 		transform = Transform;
 		if(Input.IsActionPressed("Key_T")){
-			if(angVel <= 0.7){
+			if(angVel <= 1){
 			deltaTime += delta;
-			if(deltaTime >= 0.8){
+			if(deltaTime >= 0.3){
 				 angVel += delta * angAcc;
-				 deltaTime -= 0.7;
+				 deltaTime -= 0.2;
 				}
 			}
 		}
 		if(Input.IsActionPressed("Key_G")){
 			deltaTime += delta;
-			if(deltaTime >= 0.8 && angVel > 0.0){
+			if(deltaTime >= 0.3 && angVel > 0.0){
 				 angVel -= delta * angAcc;
-				deltaTime -= 0.7;
+				deltaTime -= 0.2;
 				}
 		}
 		transform = transform.Orthonormalized();
