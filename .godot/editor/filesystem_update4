@@ -1,7 +1,5 @@
-res://scripts/plane1/Plane1_GravityPhysics.cs
+res://water_body.tscn
+res://shaders/water.gdshader
 res://Main.tscn
 res://Ground.tscn
 res://Plane1.tscn
-res://scripts/camera_scripts/camera1.cs
-res://scripts/plane1/PlaneBladeFront.cs
-res://scripts/plane1/PlaneBladeBack.cs
