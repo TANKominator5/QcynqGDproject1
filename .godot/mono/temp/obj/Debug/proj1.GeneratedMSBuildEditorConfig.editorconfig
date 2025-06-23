@@ -1,6 +1,6 @@
 is_global = true
 build_property.GodotDisabledSourceGenerators = 
-build_property.GodotProjectDir = E:\GameDev Environment\Godot\Godot_v4.4.1-stable_mono_win64\Projects\proj1\proj1\
+build_property.GodotProjectDir = E:\GameDev Environment\Godot\Godot_v4.4.1-stable_mono_win64\Projects\proj1_github\
 build_property.GodotProjectDirBase64 = 
 build_property.GodotSourceGenerators = 
 build_property.IsGodotToolsProject = 
@@ -13,6 +13,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = proj1
-build_property.ProjectDir = E:\GameDev Environment\Godot\Godot_v4.4.1-stable_mono_win64\Projects\proj1\proj1\
+build_property.ProjectDir = E:\GameDev Environment\Godot\Godot_v4.4.1-stable_mono_win64\Projects\proj1_github\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

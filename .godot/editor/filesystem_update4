@@ -1,5 +1,5 @@
-res://water_body.tscn
-res://shaders/water.gdshader
 res://Main.tscn
+res://shaders/water.gdshader
 res://Ground.tscn
 res://Plane1.tscn
+res://water_body.tscn

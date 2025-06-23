@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy5p4gudxw2oa"]
+[gd_scene load_steps=9 format=3 uid="uid://cy5p4gudxw2oa"]
 
 [ext_resource type="PackedScene" uid="uid://cnxy4cpbtfhea" path="res://Plane1.tscn" id="1_glv2v"]
 [ext_resource type="PackedScene" uid="uid://d3xead8kuliu3" path="res://Ground.tscn" id="2_uu6xs"]
 [ext_resource type="Script" uid="uid://co5ihfqygr5ap" path="res://scripts/camera_scripts/camera1.cs" id="4_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://bq6ryns214l5e" path="res://water_body.tscn" id="4_fos0i"]
 
-[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_r0du0"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3dxm6"]
 
 [sub_resource type="Sky" id="Sky_uu6xs"]
-sky_material = SubResource("PhysicalSkyMaterial_r0du0")
+sky_material = SubResource("ProceduralSkyMaterial_3dxm6")
 
 [sub_resource type="Environment" id="Environment_r0du0"]
 background_mode = 2
@@ -50,3 +51,6 @@ doppler_tracking = 2
 
 [node name="Ground" parent="." instance=ExtResource("2_uu6xs")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("4_fos0i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.878288, 0)

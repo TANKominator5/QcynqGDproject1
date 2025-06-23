@@ -45,7 +45,7 @@ public partial class Plane1_GravityPhysics : RigidBody3D
 
         if (Input.IsActionPressed("Key_T"))
         {
-            if (Thrust <= 550)
+            if (Thrust <= 650)
             {
                 deltaTime += delta;
                 if (deltaTime >= 0.3)
