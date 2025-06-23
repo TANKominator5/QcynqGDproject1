@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\GameDev Environment\\Godot\\Godot_v4.4.1-stable_mono_win64\\Projects\\proj1_github\\proj1.csproj": {}
+    "E:\\GameDev Environment\\Godot\\Godot_v4.4.1-stable_mono_win64\\Projects\\proj1\\proj1\\proj1.csproj": {}
   },
   "projects": {
-    "E:\\GameDev Environment\\Godot\\Godot_v4.4.1-stable_mono_win64\\Projects\\proj1_github\\proj1.csproj": {
+    "E:\\GameDev Environment\\Godot\\Godot_v4.4.1-stable_mono_win64\\Projects\\proj1\\proj1\\proj1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\GameDev Environment\\Godot\\Godot_v4.4.1-stable_mono_win64\\Projects\\proj1_github\\proj1.csproj",
+        "projectUniqueName": "E:\\GameDev Environment\\Godot\\Godot_v4.4.1-stable_mono_win64\\Projects\\proj1\\proj1\\proj1.csproj",
         "projectName": "proj1",
-        "projectPath": "E:\\GameDev Environment\\Godot\\Godot_v4.4.1-stable_mono_win64\\Projects\\proj1_github\\proj1.csproj",
+        "projectPath": "E:\\GameDev Environment\\Godot\\Godot_v4.4.1-stable_mono_win64\\Projects\\proj1\\proj1\\proj1.csproj",
         "packagesPath": "C:\\Users\\Tirthankar\\.nuget\\packages\\",
-        "outputPath": "E:\\GameDev Environment\\Godot\\Godot_v4.4.1-stable_mono_win64\\Projects\\proj1_github\\.godot\\mono\\temp\\obj\\",
+        "outputPath": "E:\\GameDev Environment\\Godot\\Godot_v4.4.1-stable_mono_win64\\Projects\\proj1\\proj1\\.godot\\mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Tirthankar\\AppData\\Roaming\\NuGet\\NuGet.Config",

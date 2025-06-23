@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "o9yxY0P7/n4=",
+  "dgSpecHash": "/6W6KWyQHCw=",
   "success": true,
-  "projectFilePath": "E:\\GameDev Environment\\Godot\\Godot_v4.4.1-stable_mono_win64\\Projects\\proj1_github\\proj1.csproj",
+  "projectFilePath": "E:\\GameDev Environment\\Godot\\Godot_v4.4.1-stable_mono_win64\\Projects\\proj1\\proj1\\proj1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tirthankar\\.nuget\\packages\\godot.sourcegenerators\\4.4.1\\godot.sourcegenerators.4.4.1.nupkg.sha512",
     "C:\\Users\\Tirthankar\\.nuget\\packages\\godotsharp\\4.4.1\\godotsharp.4.4.1.nupkg.sha512",

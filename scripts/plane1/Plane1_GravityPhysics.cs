@@ -1,3 +1,5 @@
+//using System.Numerics;
+//using System.Numerics;
 using Godot;
 
 public partial class Plane1_GravityPhysics : RigidBody3D
@@ -5,32 +7,34 @@ public partial class Plane1_GravityPhysics : RigidBody3D
     Transform3D transform;
     public float Thrust = 0.0f;
     double deltaTime = 0.0;
-    public float LiftStrength = 0.05f;
-    public float torqueStrength = 5f;
+    public float LiftStrength = 0.08f;
+    public float torqueStrength = 6f;
     public float WingOffsetSide = 2.2f; // Distance of wings from center
     public float nosePos = 1.7f;
     public float applyForce = 0;
-    public float airFrictionStrength = 3f;
+    //public float airFrictionStrength = 3f;
     public Vector3 planeScale = new Vector3(1.0f, 1.0f, 1.0F);
     Vector3 upVec = new Vector3(0.0f, 1.0f, 0.0f);
     Vector3 engine = new Vector3(1.6f, 0, 0);
+    Vector3 lift = new Vector3(0.0f, 0.0f, 0.0f);
 
     public override void _PhysicsProcess(double delta)
     {
         transform = Transform;
         // Get forward speed
-        Vector3 velocity = LinearVelocity;
         Vector3 velocity_xy = new Vector3(LinearVelocity.X, 0, LinearVelocity.Z);
         Vector3 forward = -GlobalTransform.Basis.X;
+        forward = forward.Normalized();
 
-        // Only forward component
-        float speed = velocity.Length();
-        float speed_xy = velocity_xy.Length();
+        //float speed = velocity.Length();
+        // Only horizontal component
+        //float speed_x = LinearVelocity.Dot(forward);
+        float speed_x = velocity_xy.Length();
 
         // Apply upward lift force at each wing
         Vector3 torque = GlobalTransform.Basis.Y * torqueStrength;
-        Vector3 lift = upVec * speed_xy * speed_xy * LiftStrength;
-        Vector3 airFriction = speed * airFrictionStrength  * (-LinearVelocity.Normalized());
+        lift = upVec * speed_x * speed_x * LiftStrength;
+        //Vector3 airFriction = speed * airFrictionStrength * (-LinearVelocity.Normalized());
 
         // Wing positions in local space
         Vector3 leftWing = new Vector3(-0.5f, 0, -WingOffsetSide);
@@ -45,7 +49,7 @@ public partial class Plane1_GravityPhysics : RigidBody3D
 
         if (Input.IsActionPressed("Key_T"))
         {
-            if (Thrust <= 650)
+            if (Thrust <= 750)
             {
                 deltaTime += delta;
                 if (deltaTime >= 0.3)
@@ -96,15 +100,19 @@ public partial class Plane1_GravityPhysics : RigidBody3D
             //transform.Basis = transform.Basis.Rotated(transform.Basis.X.Normalized(), (float)(delta));
             ApplyForce(torque, leftWingGlobal - GlobalTransform.Origin);
         }
-        if (lift.Length() <= 100)
-            ApplyCentralForce(lift);
+        
+        if (lift.Length() > 9.8f * Mass)
+            lift = upVec * 9.8f * Mass;
 
         Vector3 forwardForce = forward * Thrust;
         ApplyForce(forwardForce, engineGlobal - GlobalTransform.Origin);
-        ApplyCentralForce(airFriction);
+        ApplyCentralForce(lift);
         //LinearVelocity += forward * Thrust * (float)delta;
         transform = transform.ScaledLocal(planeScale);
         Transform = transform;
+        
+        GD.Print("Lift: ", lift.Length(), " Weight: ", Mass * 9.8f);
+
     }
 }
 
