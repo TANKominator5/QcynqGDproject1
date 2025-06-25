@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cy5p4gudxw2oa"]
+[gd_scene load_steps=10 format=3 uid="uid://cy5p4gudxw2oa"]
 
 [ext_resource type="PackedScene" uid="uid://cnxy4cpbtfhea" path="res://Plane1.tscn" id="1_glv2v"]
 [ext_resource type="PackedScene" uid="uid://d3xead8kuliu3" path="res://Ground.tscn" id="2_uu6xs"]
 [ext_resource type="Script" uid="uid://co5ihfqygr5ap" path="res://scripts/camera_scripts/camera1.cs" id="4_cm0pq"]
-[ext_resource type="PackedScene" uid="uid://bq6ryns214l5e" path="res://water_body.tscn" id="4_fos0i"]
+[ext_resource type="PackedScene" uid="uid://dv3b7j3o602pj" path="res://entire_water_body.tscn" id="4_fos0i"]
+[ext_resource type="PackedScene" uid="uid://b61e7x5h2ec0e" path="res://airport2.tscn" id="5_fos0i"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3dxm6"]
 
@@ -24,16 +25,15 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.791876, 0.335681, -0.510148, 0.371443, 0.398324, 0.838671, 0.48473, -0.853614, 0.190737, 1.63996, 1.08515, -2.01891)
+light_specular = 3.0
 shadow_enabled = true
 shadow_bias = 0.0
-directional_shadow_fade_start = 0.5
-directional_shadow_max_distance = 400.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_r0du0")
 
 [node name="OurPlane" type="Node3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.43791, 0.151632, 1.35726)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.28638, 0.152976, 1.28345)
 
 [node name="Plane1" parent="OurPlane" instance=ExtResource("1_glv2v")]
 
@@ -45,12 +45,15 @@ script = ExtResource("4_cm0pq")
 target = NodePath("../OurPlane/Plane1")
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
-transform = Transform3D(0.166666, 0, 0, 0, 0.166666, 0, 0, 0, 0.166666, 0, 0, -1.05255)
+transform = Transform3D(0.166667, 0, 0, 0, 0.166667, 0, 0, 0, 0.166667, 0, 0, -1.22981)
 rotation_edit_mode = 1
 doppler_tracking = 2
 
-[node name="Ground" parent="." instance=ExtResource("2_uu6xs")]
+[node name="airport1" parent="." instance=ExtResource("2_uu6xs")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="MeshInstance3D" parent="." instance=ExtResource("4_fos0i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.878288, 0)
+[node name="Water" parent="." instance=ExtResource("4_fos0i")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, -0.819147, 0)
+
+[node name="airport2" parent="." instance=ExtResource("5_fos0i")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -20.6069)

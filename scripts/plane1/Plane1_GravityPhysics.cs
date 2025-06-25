@@ -111,8 +111,7 @@ public partial class Plane1_GravityPhysics : RigidBody3D
         transform = transform.ScaledLocal(planeScale);
         Transform = transform;
         
-        GD.Print("Lift: ", lift.Length(), " Weight: ", Mass * 9.8f);
-
+        //GD.Print("Lift: ", lift.Length(), " Weight: ", Mass * 9.8f);
     }
 }
 

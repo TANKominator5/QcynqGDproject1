@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv3b7j3o602pj"]
+
+[ext_resource type="PackedScene" uid="uid://cw2qah6bwkkku" path="res://water_shader_scene.tscn" id="1_igpon"]
+[ext_resource type="PackedScene" uid="uid://bq6ryns214l5e" path="res://water_body.tscn" id="2_edkd6"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("1_igpon")]
+
+[node name="MeshInstance3D2" parent="." instance=ExtResource("1_igpon")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="MeshInstance3D3" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="MeshInstance3D4" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
+
+[node name="MeshInstance3D5" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+
+[node name="MeshInstance3D6" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="MeshInstance3D7" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 10)
+
+[node name="MeshInstance3D8" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="MeshInstance3D9" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -10)

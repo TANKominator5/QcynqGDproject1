@@ -1,5 +1,8 @@
 shader_type spatial;
 
+render_mode depth_draw_always;
+//render_mode depth_prepass_alpha;
+
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture , filter_linear_mipmap;
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture , filter_linear_mipmap;
 uniform vec3 albedo : source_color;
@@ -8,10 +11,12 @@ uniform float metallic : hint_range(0.0, 1.0) = 0.0;
 uniform float roughness : hint_range(0.0, 1.0) = 0.02;
 uniform sampler2D texture_normal;
 uniform sampler2D texture_normal2;
-uniform sampler2D wave;//for the vertex shader
+uniform sampler2D vertex_wave1;//for the vertex shader wave1
+uniform sampler2D vertex_wave2;//for the vertex shader wave2
 uniform vec2 wave_dir1 = vec2(2.0, 0.0);
 uniform vec2 wave_dir2 = vec2(0.0, 1.0);
-uniform float time_scale : hint_range(0.0, 1.0) = 0.025;
+uniform float time_scale1 : hint_range(0.0, 1.0) = 0.025;
+uniform float time_scale2 : hint_range(0.0, 1.0) = 0.05;
 uniform float noise_scale = 0.1;
 uniform float height_scale = 0.1;
 
@@ -25,7 +30,9 @@ uniform float depth_offset = -0.75;
 
 void vertex() {
 	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
-	height = texture(wave, world_pos.xz * noise_scale + TIME * time_scale).r;
+	vec2 wave1 = wave_dir1 * TIME * time_scale1;
+	vec2 wave2 = wave_dir2 * TIME * time_scale2;
+	height = mix(texture(vertex_wave1, world_pos.xz * noise_scale + wave1), texture(vertex_wave2, world_pos.xz * noise_scale + wave2), 0.3).r;
 	VERTEX.y += height * height_scale;
 }
 
@@ -44,11 +51,11 @@ void fragment() {
 	vec3 depth_color = mix(shallow_color.rgb, deep_color.rgb, depth_blend_power);
 	vec3 color = mix(screen_color * depth_color, depth_color * 0.25, depth_blend_power * 0.5);
 	
-	//for the fresnel effect
-	vec2 wave1 = wave_dir1 * TIME * time_scale;
-	vec2 wave2 = wave_dir2 * TIME * time_scale;
-	float fresnel = fresnel_value(8, NORMAL, VIEW);
+	vec2 wave1 = wave_dir1 * TIME * time_scale1;
+	vec2 wave2 = wave_dir2 * TIME * time_scale2;
 	
+	//for the fresnel effect
+	float fresnel = fresnel_value(8, NORMAL, VIEW);
 	vec3 surface_color = mix(albedo, albedo2, fresnel);
 	
 	vec3 normal_blend = mix(texture(texture_normal, world_pos.xz + wave1).rgb, texture(texture_normal2, world_pos.xz + wave2).rgb, 0.5);
