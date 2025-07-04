@@ -31,3 +31,51 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -60, 0, 0)
 
 [node name="MeshInstance3D9" parent="." instance=ExtResource("2_edkd6")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -60, 0, -60)
+
+[node name="MeshInstance3D10" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0, -60)
+
+[node name="MeshInstance3D11" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0, -120)
+
+[node name="MeshInstance3D12" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -60, 0, -120)
+
+[node name="MeshInstance3D13" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -120)
+
+[node name="MeshInstance3D14" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 60, 0, -120)
+
+[node name="MeshInstance3D15" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0, -120)
+
+[node name="MeshInstance3D16" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0, -60)
+
+[node name="MeshInstance3D17" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0, 0)
+
+[node name="MeshInstance3D18" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0, 60)
+
+[node name="MeshInstance3D19" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0, 120)
+
+[node name="MeshInstance3D20" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 60, 0, 120)
+
+[node name="MeshInstance3D21" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 120)
+
+[node name="MeshInstance3D22" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -60, 0, 120)
+
+[node name="MeshInstance3D23" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0, 120)
+
+[node name="MeshInstance3D24" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0, 60)
+
+[node name="MeshInstance3D25" parent="." instance=ExtResource("2_edkd6")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0, 0)

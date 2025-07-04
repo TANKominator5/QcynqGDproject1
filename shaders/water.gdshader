@@ -4,7 +4,7 @@ render_mode depth_draw_always;
 //render_mode depth_prepass_alpha;
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture , filter_linear_mipmap;
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture , repeat_disable,filter_linear_mipmap;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture , repeat_disable, filter_linear_mipmap;
 uniform vec3 albedo : source_color;
 uniform vec3 albedo2 : source_color;
 uniform float metallic : hint_range(0.0, 1.0) = 0.0;
@@ -41,11 +41,6 @@ float fresnel_value(float amt, vec3 normal, vec3 view){
 }
 void fragment() {
 
-	//for creating a moving effect for bodies under the water
-	vec2 screen_uv = SCREEN_UV;
-	screen_uv.x += sin(TIME * time_scale2 + (UV.x + UV.y) * 16.0) * 0.003;
-	screen_uv.y += sin(TIME * time_scale2 + (UV.x + UV.y) * 16.0) * 0.003;
-
 	//for the depth blending
 	float depth_texture = texture(DEPTH_TEXTURE, SCREEN_UV).r * 2.0 - 1.0;//DEPTH_TEXTURE is the depth buffer, SCREEN_UV is the uv coord in screen space
 	float depth = PROJECTION_MATRIX[3][2] / (depth_texture + PROJECTION_MATRIX[2][2]);//depth_texture is non-linear(exponential), so it is converted into linear
@@ -69,7 +64,7 @@ void fragment() {
 	color = mix(surface_color, color, 0.75);
 	vec3 normal_blend = mix(texture(texture_normal, world_pos.xz + wave1).rgb, texture(texture_normal2, world_pos.xz + wave2).rgb, 0.5);
 
-	ALBEDO = color * 4.0;
+	ALBEDO = color * 3.0;
 	METALLIC = metallic;
 	ROUGHNESS = roughness;
 	NORMAL_MAP = normal_blend;

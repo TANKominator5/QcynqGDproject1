@@ -21,7 +21,6 @@ glow_enabled = true
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_r0du0"]
 
 [node name="Main" type="Node3D"]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.791876, 0.335681, -0.510148, 0.371443, 0.398324, 0.838671, 0.48473, -0.853614, 0.190737, 1.63996, 1.08515, -2.01891)
@@ -53,7 +52,7 @@ doppler_tracking = 2
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="Water" parent="." instance=ExtResource("4_fos0i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.26507, 0)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, -0.819147, 0)
 
 [node name="airport2" parent="." instance=ExtResource("5_fos0i")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -20.6069)

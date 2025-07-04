@@ -1,12 +1,12 @@
+CollisionShape3D
+RigidBody3D
+Node3D
 WorldEnvironment
 DirectionalLight3D
 Terrain3D
 StaticBody3D
-CollisionShape3D
-RigidBody3D
 MeshInstance3D
 Camera3D
-Node3D
 Node
 SpringArm3D
 CollisionPolygon3D
