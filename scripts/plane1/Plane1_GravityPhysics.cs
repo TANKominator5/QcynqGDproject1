@@ -7,8 +7,8 @@ public partial class Plane1_GravityPhysics : RigidBody3D
     Transform3D transform;
     public float Thrust = 0.0f;
     double deltaTime = 0.0;
-    public float LiftStrength = 0.08f;
-    public float torqueStrength = 6f;
+    public float LiftStrength = 0.07f;
+    public float torqueStrength = 9.3f;
     public float WingOffsetSide = 2.2f; // Distance of wings from center
     public float nosePos = 1.7f;
     public float applyForce = 0;
@@ -32,9 +32,10 @@ public partial class Plane1_GravityPhysics : RigidBody3D
         float speed_x = velocity_xy.Length();
 
         // Apply upward lift force at each wing
-        Vector3 torque = GlobalTransform.Basis.Y * torqueStrength;
+        Vector3 torque = GlobalTransform.Basis.Y * torqueStrength;//upward wrt to local space of plane
         lift = upVec * speed_x * speed_x * LiftStrength;
-        //Vector3 airFriction = speed * airFrictionStrength * (-LinearVelocity.Normalized());
+
+        Vector3 torqueAng = (-GlobalTransform.Basis.X) * torqueStrength;//made for using torque through ApplyTorque() function
 
         // Wing positions in local space
         Vector3 leftWing = new Vector3(-0.5f, 0, -WingOffsetSide);
@@ -49,15 +50,14 @@ public partial class Plane1_GravityPhysics : RigidBody3D
 
         if (Input.IsActionPressed("Key_T"))
         {
-            if (Thrust <= 750)
+            if (Thrust <= 1000)
             {
                 deltaTime += delta;
-                if (deltaTime >= 0.3)
+                if (deltaTime >= 0.2)
                 {
                     Thrust += 10f;
-                    deltaTime -= 0.2;
+                    deltaTime -= 0.1;
                 }
-                applyForce = 0.01f;
             }
         }
         if (Input.IsActionPressed("Key_G"))
@@ -65,21 +65,16 @@ public partial class Plane1_GravityPhysics : RigidBody3D
             if (Thrust > 0)
             {
                 deltaTime += delta;
-                if (deltaTime >= 0.3)
+                if (deltaTime >= 0.2)
                 {
                     Thrust -= 10f;
-                    deltaTime -= 0.2;
+                    deltaTime -= 0.1;
                 }
             }
         }
 
         transform = transform.Orthonormalized();
 
-        if (Input.IsActionJustReleased("Key_T"))
-        {
-            applyForce = 0;
-            //Thrust = 0;
-        }
         if (Input.IsActionPressed("Key_W"))
         {
             //transform.Basis = transform.Basis.Rotated(transform.Basis.Z.Normalized(), (float)(delta));
@@ -93,12 +88,14 @@ public partial class Plane1_GravityPhysics : RigidBody3D
         if (Input.IsActionPressed("Key_D"))
         {
             //transform.Basis = transform.Basis.Rotated(transform.Basis.X.Normalized(), (float)(-delta));
-            ApplyForce(torque, rightWingGlobal - GlobalTransform.Origin);
+            //ApplyForce(torque, rightWingGlobal - GlobalTransform.Origin);
+            ApplyTorque(torqueAng);
         }
         if (Input.IsActionPressed("Key_A"))
         {
             //transform.Basis = transform.Basis.Rotated(transform.Basis.X.Normalized(), (float)(delta));
-            ApplyForce(torque, leftWingGlobal - GlobalTransform.Origin);
+            //ApplyForce(torque, leftWingGlobal - GlobalTransform.Origin);
+            ApplyTorque(-torqueAng);
         }
         
         if (lift.Length() > 9.8f * Mass)

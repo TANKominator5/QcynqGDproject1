@@ -4,13 +4,15 @@ render_mode depth_draw_always;
 //render_mode depth_prepass_alpha;
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture , filter_linear_mipmap;
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture , filter_linear_mipmap;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture , filter_linear_mipmap, repeat_disable;
 uniform vec3 albedo : source_color;
 uniform vec3 albedo2 : source_color;
 uniform float metallic : hint_range(0.0, 1.0) = 0.0;
 uniform float roughness : hint_range(0.0, 1.0) = 0.02;
 uniform sampler2D texture_normal;
 uniform sampler2D texture_normal2;
+uniform sampler2D caustic_emission1;
+uniform sampler2D caustic_emission2;
 uniform sampler2D vertex_wave1;//for the vertex shader wave1
 uniform sampler2D vertex_wave2;//for the vertex shader wave2
 uniform vec2 wave_dir1 = vec2(2.0, 0.0);
@@ -18,7 +20,7 @@ uniform vec2 wave_dir2 = vec2(0.0, 1.0);
 uniform float time_scale1 : hint_range(0.0, 1.0) = 0.025;
 uniform float time_scale2 : hint_range(0.0, 1.0) = 0.05;
 uniform float noise_scale = 0.1;
-uniform float height_scale = 0.1;
+uniform float height_scale : hint_range(0.0, 10.0) = 0.1;
 
 varying float height;
 varying vec3 world_pos;
@@ -40,6 +42,12 @@ float fresnel_value(float amt, vec3 normal, vec3 view){
 	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0)), amt);
 }
 void fragment() {
+
+	//for creating a moving effect for bodies under the water
+	vec2 screen_uv = SCREEN_UV;
+	screen_uv.x += sin(TIME * time_scale2 + (UV.x + UV.y) * 16.0) * 0.003;
+	screen_uv.y += sin(TIME * time_scale2 + (UV.x + UV.y) * 16.0) * 0.003;
+
 	//for the depth blending
 	float depth_texture = texture(DEPTH_TEXTURE, SCREEN_UV).r * 2.0 - 1.0;//DEPTH_TEXTURE is the depth buffer, SCREEN_UV is the uv coord in screen space
 	float depth = PROJECTION_MATRIX[3][2] / (depth_texture + PROJECTION_MATRIX[2][2]);//depth_texture is non-linear(exponential), so it is converted into linear
@@ -47,8 +55,9 @@ void fragment() {
 	//depth + VERTEX.z(view space z of fragment) + dpeth_offset gives the material thickness
 	depth_blend = clamp(1.0 - depth_blend, 0.0, 1.0);//reversing the depth blend which is opacity now and clamping bet. 0 and 1
 	float depth_blend_power = clamp(pow(depth_blend, 2.5), 0.0, 1.0);
-	vec3 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, depth_blend_power * 2.5).rgb;//for a blurring effect depending on the depth
-	vec3 depth_color = mix(shallow_color.rgb, deep_color.rgb, depth_blend_power);
+
+	vec3 screen_color = textureLod(SCREEN_TEXTURE, screen_uv, depth_blend_power * 2.5).rgb;//for a blurring effect depending on the depth
+	vec3 depth_color = mix(shallow_color.rgb, deep_color.rgb, depth_blend_power);//depth is more depth_blend_power is more, effect of shallow color will be less
 	vec3 color = mix(screen_color * depth_color, depth_color * 0.25, depth_blend_power * 0.5);
 
 	vec2 wave1 = wave_dir1 * TIME * time_scale1;
@@ -58,12 +67,17 @@ void fragment() {
 	float fresnel = fresnel_value(8, NORMAL, VIEW);
 	vec3 surface_color = mix(albedo, albedo2, fresnel);
 
+	//final albedo color calculation
+	color = mix(surface_color, color, 0.75);
+	color = color * 4.0 * (textureLod(caustic_emission1, world_pos.xz + wave1, 1.0).rgb + textureLod(caustic_emission2, world_pos.xz + wave2, 1.0).rgb);
+
 	vec3 normal_blend = mix(texture(texture_normal, world_pos.xz + wave1).rgb, texture(texture_normal2, world_pos.xz + wave2).rgb, 0.5);
 
-	ALBEDO = mix(surface_color, color, 0.75);
+	ALBEDO = color;
 	METALLIC = metallic;
 	ROUGHNESS = roughness;
 	NORMAL_MAP = normal_blend;
+	//EMISSION = textureLod(caustic_emission, UV, 0.001).rgb;
 }
 
 //void light() {
