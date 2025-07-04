@@ -1,17 +1,17 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1751646462
-airport1.tscn::PackedScene::4222895865517290484::1751647075::0::1::::<><><>0<>0<><>::uid://cjn5nk618lww7::::res://models/Ground/texture1.png<>uid://45v8821pmbkp::::res://models/Ground/Airport.obj
-airport2.tscn::PackedScene::4616249926189156878::1751647076::0::1::::<><><>0<>0<><>::uid://cj4bg2u225vly::::res://models/Ground/Airport2.obj
-desertmap.tscn::PackedScene::6134773979933940563::1751646462::0::1::::<><><>0<>0<><>::uid://dmgi03myprbte::::res://terrain_data/ desert_material.tres<>uid://dj8kn2pmypnek::::res://terrain_data/desert_assets.tres
-entire_water_body.tscn::PackedScene::8691148723632591723::1751647076::0::1::::<><><>0<>0<><>::uid://bq6ryns214l5e::::res://water_body.tscn
+::res://::1751648208
+airport1.tscn::PackedScene::4222895865517290484::1751648284::0::1::::<><><>0<>0<><>::uid://cjn5nk618lww7::::res://models/Ground/texture1.png<>uid://45v8821pmbkp::::res://models/Ground/Airport.obj
+airport2.tscn::PackedScene::4616249926189156878::1751648285::0::1::::<><><>0<>0<><>::uid://cj4bg2u225vly::::res://models/Ground/Airport2.obj
+desertmap.tscn::PackedScene::6134773979933940563::1751648208::0::1::::<><><>0<>0<><>::uid://dmgi03myprbte::::res://terrain_data/ desert_material.tres<>uid://dj8kn2pmypnek::::res://terrain_data/desert_assets.tres
+entire_water_body.tscn::PackedScene::8691148723632591723::1751648285::0::1::::<><><>0<>0<><>::uid://bq6ryns214l5e::::res://water_body.tscn
 export_presets.cfg::TextFile/TextFile::-1::1750171451::0::1::::<><><>0<>0<><>::
 Ground2.tscn::PackedScene/PackedScene::5779489697763295286::1750786952::0::1::::<><><>0<>0<><>::uid://cj4bg2u225vly::::res://models/Ground/Airport2.obj
 Ground.tscn::PackedScene/PackedScene::9172273438288770044::1750787381::0::1::::<><><>0<>0<><>::uid://45v8821pmbkp::::res://models/Ground/Airport.obj<>uid://cjn5nk618lww7::::res://models/Ground/texture1.png
 icon.svg::CompressedTexture2D/CompressedTexture2D::5577538842653142277::1749571218::1749735226::1::::<><><>0<>0<>34ce9183c3fb58b59debe55778680261<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-Main.tscn::PackedScene::6520267836439639112::1751647075::0::1::::<><><>0<>0<><>::uid://cnxy4cpbtfhea::::res://Plane1.tscn<>uid://d3xead8kuliu3::::res://Ground.tscn<>uid://co5ihfqygr5ap::::res://scripts/camera_scripts/camera1.cs<>uid://dv3b7j3o602pj::::res://entire_water_body.tscn<>uid://b61e7x5h2ec0e::::res://airport2.tscn
-Plane1.tscn::PackedScene::5734286147163432156::1751647075::0::1::::<><><>0<>0<><>::uid://b7neqt45en8qt::::res://scripts/plane1/Plane1_GravityPhysics.cs<>uid://2wesgfgqsfcf::::res://models/aircraft1/plane1_new5.obj<>uid://briovqwqxfoqn::::res://models/aircraft1/plane1_blade1.obj<>uid://ds3kto7cpm6u2::::res://scripts/plane1/PlaneBladeFront.cs<>uid://bu83wvxuj2qmj::::res://scripts/plane1/PlaneBladeBack.cs<>uid://b88054c5ssith::::res://models/aircraft1/wheels_legs_front_aircraft1.obj<>uid://b2m6swpae5rxv::::res://models/aircraft1/wheels_legs_hind_aircraft1.obj
+Main.tscn::PackedScene::6520267836439639112::1751648284::0::1::::<><><>0<>0<><>::uid://cnxy4cpbtfhea::::res://Plane1.tscn<>uid://d3xead8kuliu3::::res://Ground.tscn<>uid://co5ihfqygr5ap::::res://scripts/camera_scripts/camera1.cs<>uid://dv3b7j3o602pj::::res://entire_water_body.tscn<>uid://b61e7x5h2ec0e::::res://airport2.tscn
+Plane1.tscn::PackedScene::5734286147163432156::1751648285::0::1::::<><><>0<>0<><>::uid://b7neqt45en8qt::::res://scripts/plane1/Plane1_GravityPhysics.cs<>uid://2wesgfgqsfcf::::res://models/aircraft1/plane1_new5.obj<>uid://briovqwqxfoqn::::res://models/aircraft1/plane1_blade1.obj<>uid://ds3kto7cpm6u2::::res://scripts/plane1/PlaneBladeFront.cs<>uid://bu83wvxuj2qmj::::res://scripts/plane1/PlaneBladeBack.cs<>uid://b88054c5ssith::::res://models/aircraft1/wheels_legs_front_aircraft1.obj<>uid://b2m6swpae5rxv::::res://models/aircraft1/wheels_legs_hind_aircraft1.obj
 README.md::TextFile/TextFile::-1::1750095118::0::1::::<><><>0<>0<><>::
-water_body.tscn::PackedScene::3574513652080905748::1751647075::0::1::::<><><>0<>0<><>::uid://m8ywgxal2m37::::res://shaders/water.gdshader
+water_body.tscn::PackedScene::3574513652080905748::1751648284::0::1::::<><><>0<>0<><>::uid://m8ywgxal2m37::::res://shaders/water.gdshader
 ::res://addons/::1751629694
 ::res://addons/terrain_3d/::1751629695
 LICENSE.txt::TextFile/TextFile::-1::1751629694::0::1::::<><><>0<>0<><>::
@@ -103,11 +103,11 @@ camera1.cs::CSharpScript/CSharpScript::5817915035872707183::1750098525::0::1::::
 Plane1_GravityPhysics.cs::CSharpScript/CSharpScript::4659573075698397151::1751634575::0::1::::<>RigidBody3D<><>0<>0<><>::
 PlaneBladeBack.cs::CSharpScript/CSharpScript::3860062525043760265::1750788445::0::1::::<>Node3D<><>0<>0<><>::
 PlaneBladeFront.cs::CSharpScript/CSharpScript::8481105698561484879::1750788442::0::1::::<>Node3D<><>0<>0<><>::
-::res://shaders/::1751646462
-water.gdshader::Shader::911887435519042256::1751647076::0::1::::<><><>0<>0<><>::
-::res://terrain_data/::1751646462
- desert_material.tres::Terrain3DMaterial::8014446312352426758::1751646462::0::1::::<><><>0<>0<><>::
-desert_assets.tres::Terrain3DAssets::7859717936834417534::1751646462::0::1::::<><><>0<>0<><>::
+::res://shaders/::1751648208
+water.gdshader::Shader::911887435519042256::1751648285::0::1::::<><><>0<>0<><>::
+::res://terrain_data/::1751648208
+ desert_material.tres::Terrain3DMaterial::8014446312352426758::1751648208::0::1::::<><><>0<>0<><>::
+desert_assets.tres::Terrain3DAssets::7859717936834417534::1751648208::0::1::::<><><>0<>0<><>::
 terrain3d-01-01.res::Terrain3DRegion/Terrain3DRegion::7599437554126913466::1751630896::0::1::::<><><>0<>0<><>::
 terrain3d-01-02.res::Terrain3DRegion/Terrain3DRegion::8183408366172268195::1751630896::0::1::::<><><>0<>0<><>::
 terrain3d-01_00.res::Terrain3DRegion/Terrain3DRegion::2832987042019680250::1751629695::0::1::::<><><>0<>0<><>::

@@ -11,8 +11,6 @@ uniform float metallic : hint_range(0.0, 1.0) = 0.0;
 uniform float roughness : hint_range(0.0, 1.0) = 0.02;
 uniform sampler2D texture_normal;
 uniform sampler2D texture_normal2;
-uniform sampler2D caustic_emission1;
-uniform sampler2D caustic_emission2;
 uniform sampler2D vertex_wave1;//for the vertex shader wave1
 uniform sampler2D vertex_wave2;//for the vertex shader wave2
 uniform vec2 wave_dir1 = vec2(2.0, 0.0);
@@ -64,17 +62,14 @@ void fragment() {
 	vec2 wave2 = wave_dir2 * TIME * time_scale2;
 
 	//for the fresnel effect
-	float fresnel = fresnel_value(16, NORMAL, VIEW);
+	float fresnel = fresnel_value(8, NORMAL, VIEW);
 	vec3 surface_color = mix(albedo, albedo2, fresnel);
 
 	//final albedo color calculation
 	color = mix(surface_color, color, 0.75);
-	//color = color * 3.0 * (textureLod(caustic_emission1, world_pos.xz + wave1 + TIME * time_scale1, 1.0).rgb + textureLod(caustic_emission2, world_pos.xz + wave2  + TIME * time_scale2, 1.0).rgb);
-	color = color * 3.0 * mix(textureLod(caustic_emission1, world_pos.xz + wave1 + TIME * time_scale1, 1.0).rgb , textureLod(caustic_emission2, world_pos.xz + wave2  + TIME * time_scale2, 1.0).rgb , 0.5);
-
 	vec3 normal_blend = mix(texture(texture_normal, world_pos.xz + wave1).rgb, texture(texture_normal2, world_pos.xz + wave2).rgb, 0.5);
 
-	ALBEDO = color;
+	ALBEDO = color * 4.0;
 	METALLIC = metallic;
 	ROUGHNESS = roughness;
 	NORMAL_MAP = normal_blend;
