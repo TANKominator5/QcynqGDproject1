@@ -50,16 +50,16 @@ void fragment() {
 	vec3 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, depth_blend_power * 2.5).rgb;//for a blurring effect depending on the depth
 	vec3 depth_color = mix(shallow_color.rgb, deep_color.rgb, depth_blend_power);
 	vec3 color = mix(screen_color * depth_color, depth_color * 0.25, depth_blend_power * 0.5);
-	
+
 	vec2 wave1 = wave_dir1 * TIME * time_scale1;
 	vec2 wave2 = wave_dir2 * TIME * time_scale2;
-	
+
 	//for the fresnel effect
 	float fresnel = fresnel_value(8, NORMAL, VIEW);
 	vec3 surface_color = mix(albedo, albedo2, fresnel);
-	
+
 	vec3 normal_blend = mix(texture(texture_normal, world_pos.xz + wave1).rgb, texture(texture_normal2, world_pos.xz + wave2).rgb, 0.5);
-	
+
 	ALBEDO = mix(surface_color, color, 0.75);
 	METALLIC = metallic;
 	ROUGHNESS = roughness;

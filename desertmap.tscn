@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctny3i2o0o8vf"]
+
+[ext_resource type="Terrain3DMaterial" uid="uid://dmgi03myprbte" path="res://terrain_data/ desert_material.tres" id="1_bnsl5"]
+[ext_resource type="Terrain3DAssets" uid="uid://dj8kn2pmypnek" path="res://terrain_data/desert_assets.tres" id="2_ypry5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gg8ee"]
+sky_top_color = Color(0.426931, 0.465404, 0.373198, 1)
+sky_horizon_color = Color(0.706039, 0.669671, 0.264699, 1)
+
+[sub_resource type="Sky" id="Sky_aqiqw"]
+sky_material = SubResource("ProceduralSkyMaterial_gg8ee")
+
+[sub_resource type="Environment" id="Environment_sjiv1"]
+background_mode = 2
+sky = SubResource("Sky_aqiqw")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+data_directory = "res://terrain_data"
+material = ExtResource("1_bnsl5")
+assets = ExtResource("2_ypry5")
+show_checkered = true
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Terrain3D"]
+transform = Transform3D(0.843401, -0.411584, 0.34536, 4.45114e-08, 0.642788, 0.766044, -0.537285, -0.646083, 0.542128, -2.87602, 13.0389, -4.99895)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Terrain3D"]
+environment = SubResource("Environment_sjiv1")

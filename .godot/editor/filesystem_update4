@@ -1,14 +1,3 @@
-res://Main.tscn
+res://terrain_data/terrain3d-01_00.res
+res://desertmap.tscn
 res://shaders/water.gdshader
-res://Ground.tscn
-res://Plane1.tscn
-res://water_body.tscn
-res://Ground2.tscn
-res://water_shader_scene.tscn
-res://entire_water_body.tscn
-res://airport2.tscn
-res://scripts/plane1/PlaneBladeBack.cs
-res://scripts/plane1/PlaneBladeFront.cs
-res://airport1.tscn
-res://scripts/camera_scripts/camera1.cs
-res://scripts/plane1/Plane1_GravityPhysics.cs
