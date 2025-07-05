@@ -37,14 +37,8 @@ public partial class Plane1_GravityPhysics : RigidBody3D
 
         Vector3 torqueAng = (-GlobalTransform.Basis.X) * torqueStrength;//made for using torque through ApplyTorque() function
 
-        // Wing positions in local space
-        Vector3 leftWing = new Vector3(-0.5f, 0, -WingOffsetSide);
-        Vector3 rightWing = new Vector3(-0.5f, 0, WingOffsetSide);
         Vector3 nose = new Vector3(-nosePos, 0, 0);
 
-        // Convert to global space
-        Vector3 leftWingGlobal = GlobalTransform * leftWing;
-        Vector3 rightWingGlobal = GlobalTransform * rightWing;
         Vector3 noseGlobal = GlobalTransform * nose;
         Vector3 engineGlobal = GlobalTransform * engine;
 
@@ -53,10 +47,10 @@ public partial class Plane1_GravityPhysics : RigidBody3D
             if (Thrust <= 1000)
             {
                 deltaTime += delta;
-                if (deltaTime >= 0.2)
+                if (deltaTime >= 0.25)
                 {
                     Thrust += 10f;
-                    deltaTime -= 0.1;
+                    deltaTime -= 0.15;
                 }
             }
         }
@@ -65,10 +59,10 @@ public partial class Plane1_GravityPhysics : RigidBody3D
             if (Thrust > 0)
             {
                 deltaTime += delta;
-                if (deltaTime >= 0.2)
+                if (deltaTime >= 0.25)
                 {
                     Thrust -= 10f;
-                    deltaTime -= 0.1;
+                    deltaTime -= 0.15;
                 }
             }
         }

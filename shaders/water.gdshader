@@ -64,7 +64,7 @@ void fragment() {
 	color = mix(surface_color, color, 0.75);
 	vec3 normal_blend = mix(texture(texture_normal, world_pos.xz + wave1).rgb, texture(texture_normal2, world_pos.xz + wave2).rgb, 0.5);
 
-	ALBEDO = color * 3.0;
+	ALBEDO = color * 2.8;
 	METALLIC = metallic;
 	ROUGHNESS = roughness;
 	NORMAL_MAP = normal_blend;
