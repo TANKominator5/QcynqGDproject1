@@ -13,3 +13,5 @@ res://scripts/plane1/Plane1_GravityPhysics.cs
 res://scripts/plane1/PlaneBladeBack.cs
 res://scripts/EntireWaterBody.cs
 res://scripts/Water Body/EntireWaterBody.cs
+res://shaders/water_body_low_detail.gdshader
+res://water_body_low_detail.tscn

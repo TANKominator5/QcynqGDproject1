@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://hciyj17ddq5y"]
+
+[ext_resource type="Shader" uid="uid://dtyma2vuesrsl" path="res://shaders/water_body_low_detail.gdshader" id="1_o2424"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_4lll0"]
+lightmap_size_hint = Vector2i(7, 7)
+size = Vector2(10, 10)
+subdivide_width = 800
+subdivide_depth = 900
+orientation = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gw7w0"]
+render_priority = 0
+shader = ExtResource("1_o2424")
+shader_parameter/albedo = Color(0.180392, 0, 0.996078, 1)
+shader_parameter/albedo2 = Color(0.311656, 0.529006, 1, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.02
+shader_parameter/deep_color = Color(0.133583, 7.70092e-07, 0.691469, 1)
+shader_parameter/shallow_color = Color(0, 0.436343, 0.972778, 1)
+shader_parameter/beers_law_value = 10.0
+shader_parameter/depth_offset = -0.75
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+cast_shadow = 0
+mesh = SubResource("QuadMesh_4lll0")
+surface_material_override/0 = SubResource("ShaderMaterial_gw7w0")

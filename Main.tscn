@@ -30,15 +30,16 @@ glow_normalized = true
 glow_intensity = 1.0
 fog_enabled = true
 fog_mode = 1
+fog_light_energy = 0.6
 fog_density = 1.0
-fog_depth_curve = 9.0
-fog_depth_begin = 100.0
+fog_depth_curve = 32.0
+fog_depth_begin = 200.0
 fog_depth_end = 1000.0
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.001
 volumetric_fog_anisotropy = 0.4
 volumetric_fog_length = 400.0
-volumetric_fog_ambient_inject = 4.0
+volumetric_fog_ambient_inject = 1.6
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_r0du0"]
 
@@ -46,8 +47,9 @@ volumetric_fog_ambient_inject = 4.0
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.791876, 0.335681, -0.510148, 0.371443, 0.398324, 0.838671, 0.48473, -0.853614, 0.190737, 1.63996, 1.08515, -2.01891)
-light_energy = 1.1
+transform = Transform3D(0.0536503, -0.615606, -0.786226, -0.757362, -0.538229, 0.369747, -0.650788, 0.57562, -0.495113, 1.63996, 1.08515, -2.01891)
+light_color = Color(1, 1, 0.941176, 1)
+light_energy = 0.8
 light_specular = 3.0
 shadow_enabled = true
 shadow_bias = 0.0

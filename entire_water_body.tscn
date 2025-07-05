@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv3b7j3o602pj"]
+[gd_scene load_steps=3 format=3 uid="uid://dv3b7j3o602pj"]
 
 [ext_resource type="PackedScene" uid="uid://bq6ryns214l5e" path="res://water_body.tscn" id="2_edkd6"]
+[ext_resource type="PackedScene" uid="uid://hciyj17ddq5y" path="res://water_body_low_detail.tscn" id="2_igpon"]
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
@@ -32,50 +33,50 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -60, 0, 0)
 [node name="MeshInstance3D9" parent="." instance=ExtResource("2_edkd6")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -60, 0, -60)
 
-[node name="MeshInstance3D10" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0, -60)
+[node name="MeshInstance3D10" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0.376192, 120)
 
-[node name="MeshInstance3D11" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0, -120)
+[node name="MeshInstance3D11" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -60, 0.376192, 120)
 
-[node name="MeshInstance3D12" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -60, 0, -120)
+[node name="MeshInstance3D12" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0.376192, 120)
 
-[node name="MeshInstance3D13" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -120)
+[node name="MeshInstance3D13" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0.376192, 60)
 
-[node name="MeshInstance3D14" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 60, 0, -120)
+[node name="MeshInstance3D14" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0.376, 0)
 
-[node name="MeshInstance3D15" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0, -120)
+[node name="MeshInstance3D15" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0.376, -60)
 
-[node name="MeshInstance3D16" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0, -60)
+[node name="MeshInstance3D16" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0.376, -120)
 
-[node name="MeshInstance3D17" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0, 0)
+[node name="MeshInstance3D17" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -60, 0.376, -120)
 
-[node name="MeshInstance3D18" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0, 60)
+[node name="MeshInstance3D18" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0.376, -120)
 
-[node name="MeshInstance3D19" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0, 120)
+[node name="MeshInstance3D19" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 60, 0.376, -120)
 
-[node name="MeshInstance3D20" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 60, 0, 120)
+[node name="MeshInstance3D20" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0.376, -120)
 
-[node name="MeshInstance3D21" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 120)
+[node name="MeshInstance3D21" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0.376, -60)
 
-[node name="MeshInstance3D22" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -60, 0, 120)
+[node name="MeshInstance3D22" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0.376, 0)
 
-[node name="MeshInstance3D23" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0, 120)
+[node name="MeshInstance3D23" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0.376, 60)
 
-[node name="MeshInstance3D24" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0, 60)
+[node name="MeshInstance3D24" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 120, 0.376, 120)
 
-[node name="MeshInstance3D25" parent="." instance=ExtResource("2_edkd6")]
-transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -120, 0, 0)
+[node name="MeshInstance3D25" parent="." instance=ExtResource("2_igpon")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 60, 0.376, 120)
