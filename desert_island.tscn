@@ -1,0 +1,119 @@
+[gd_scene load_steps=17 format=3 uid="uid://b3yfbdiqso36p"]
+
+[ext_resource type="Shader" uid="uid://mw0yicmpqykc" path="res://shaders/desert_island_dunes.gdshader" id="1_h3bmn"]
+[ext_resource type="Texture2D" uid="uid://bgo68dqnd0ukf" path="res://extern_textures/desert_island _texture3.png" id="2_wxuxp"]
+[ext_resource type="ArrayMesh" uid="uid://bpyekp2uj0lp6" path="res://models/Ground/desert_island.obj" id="3_cqb2r"]
+[ext_resource type="ArrayMesh" uid="uid://cf6nhkw2pi2b" path="res://models/Ground/desert_island2.obj" id="4_cqb2r"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h3bmn"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wxuxp"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_h3bmn")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f1x5y"]
+seed = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cqb2r"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_f1x5y")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wxuxp"]
+noise_type = 3
+seed = 1
+frequency = 0.002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f1x5y"]
+seamless = true
+bump_strength = 16.0
+noise = SubResource("FastNoiseLite_wxuxp")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_cqb2r"]
+noise_type = 3
+seed = 4
+frequency = 0.002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nqyi3"]
+seamless = true
+bump_strength = 12.0
+noise = SubResource("FastNoiseLite_cqb2r")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nqyi3"]
+noise_type = 3
+frequency = 0.003
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_rch83"]
+seamless = true
+bump_strength = 32.0
+noise = SubResource("FastNoiseLite_nqyi3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rch83"]
+render_priority = 0
+shader = ExtResource("1_h3bmn")
+shader_parameter/albedo = Color(0.694118, 0.701961, 0.403922, 1)
+shader_parameter/roughness = 1.0
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_wxuxp")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_cqb2r")
+shader_parameter/vertex_wave1 = SubResource("NoiseTexture2D_f1x5y")
+shader_parameter/vertex_wave2 = SubResource("NoiseTexture2D_nqyi3")
+shader_parameter/vertex_wave3 = SubResource("NoiseTexture2D_rch83")
+shader_parameter/vertex_wave4 = ExtResource("2_wxuxp")
+shader_parameter/wave_dir1 = Vector2(1, 0)
+shader_parameter/wave_dir2 = Vector2(0, 1)
+shader_parameter/wave_dir3 = Vector2(1, 1)
+shader_parameter/noise_scale = 1.0
+shader_parameter/height_scale = 4.6
+
+[sub_resource type="QuadMesh" id="QuadMesh_1egad"]
+size = Vector2(100, 100)
+subdivide_width = 500
+subdivide_depth = 500
+orientation = 1
+
+[node name="Node3D" type="Node3D"]
+
+[node name="main_Middle" type="MeshInstance3D" parent="."]
+material_override = SubResource("ShaderMaterial_rch83")
+mesh = SubResource("QuadMesh_1egad")
+
+[node name="Side" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.99382e-07, 0, -16, 0, 16, 0, 16, 0, -6.99382e-07, 0, -5, 100)
+material_override = SubResource("ShaderMaterial_rch83")
+mesh = ExtResource("3_cqb2r")
+
+[node name="Side2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-16, 0, -1.39876e-06, 0, 16, 0, 1.39876e-06, 0, -16, -100, -5, 100)
+material_override = SubResource("ShaderMaterial_rch83")
+mesh = ExtResource("4_cqb2r")
+
+[node name="Side3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.99382e-07, 0, -16, 0, 16, 0, 16, 0, -6.99382e-07, 100, -5, 100)
+material_override = SubResource("ShaderMaterial_rch83")
+mesh = ExtResource("4_cqb2r")
+
+[node name="Side4" type="MeshInstance3D" parent="."]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 100, -5, -100)
+material_override = SubResource("ShaderMaterial_rch83")
+mesh = ExtResource("4_cqb2r")
+
+[node name="Side5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.99382e-07, 0, 16, 0, 16, 0, -16, 0, -6.99382e-07, 0, -5, -100)
+material_override = SubResource("ShaderMaterial_rch83")
+mesh = ExtResource("3_cqb2r")
+
+[node name="Side6" type="MeshInstance3D" parent="."]
+transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 100, -5, 0)
+material_override = SubResource("ShaderMaterial_rch83")
+mesh = ExtResource("3_cqb2r")
+
+[node name="Side7" type="MeshInstance3D" parent="."]
+transform = Transform3D(-16, 0, -1.39876e-06, 0, 16, 0, 1.39876e-06, 0, -16, -100, -5, 0)
+material_override = SubResource("ShaderMaterial_rch83")
+mesh = ExtResource("3_cqb2r")
+
+[node name="Side8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.99382e-07, 0, 16, 0, 16, 0, -16, 0, -6.99382e-07, -100, -5, -100)
+material_override = SubResource("ShaderMaterial_rch83")
+mesh = ExtResource("4_cqb2r")
