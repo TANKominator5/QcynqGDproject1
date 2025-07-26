@@ -46,7 +46,7 @@ volumetric_fog_ambient_inject = 1.6
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0536503, -0.615606, -0.786226, -0.757362, -0.538229, 0.369747, -0.650788, 0.57562, -0.495113, 1.63996, 1.08515, -2.01891)
+transform = Transform3D(0.0972559, -0.051454, -0.125186, -0.0126122, -0.156928, 0.0547022, -0.134759, -0.0224473, -0.0954667, 1.63996, 1.08515, -2.01891)
 light_color = Color(1, 1, 0.941176, 1)
 light_energy = 0.8
 light_specular = 3.0
@@ -92,4 +92,4 @@ aircraft = NodePath("../OurPlane/Plane1")
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -20.6069)
 
 [node name="Land1" parent="." instance=ExtResource("7_lgr22")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 351.252, -1.2761, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 252.916, -1.29377, 0.0999374)

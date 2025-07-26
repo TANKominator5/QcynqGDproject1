@@ -1,0 +1,15 @@
+res://Main.tscn
+res://shaders/water.gdshader
+res://shaders/water_body_low_detail.gdshader
+res://shaders/desert_island_dunes_lowLOD.gdshader
+res://shaders/desert_island_dunes.gdshader
+res://desert_island.tscn
+res://water_body_low_detail.tscn
+res://water_body.tscn
+res://airport2.tscn
+res://scripts/camera_scripts/camera1.cs
+res://scripts/Water Body/EntireWaterBody.cs
+res://scripts/plane1/PlaneBladeBack.cs
+res://scripts/plane1/PlaneBladeFront.cs
+res://scripts/plane1/Plane1_GravityPhysics.cs
+res://desert_islandLowLOD.tscn

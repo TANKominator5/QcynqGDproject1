@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3yfbdiqso36p"]
+[gd_scene load_steps=16 format=3 uid="uid://b3yfbdiqso36p"]
 
 [ext_resource type="Shader" uid="uid://mw0yicmpqykc" path="res://shaders/desert_island_dunes.gdshader" id="1_h3bmn"]
 [ext_resource type="Texture2D" uid="uid://bgo68dqnd0ukf" path="res://extern_textures/desert_island _texture3.png" id="2_wxuxp"]
-[ext_resource type="ArrayMesh" uid="uid://bpyekp2uj0lp6" path="res://models/Ground/desert_island.obj" id="3_cqb2r"]
-[ext_resource type="ArrayMesh" uid="uid://cf6nhkw2pi2b" path="res://models/Ground/desert_island2.obj" id="4_cqb2r"]
+[ext_resource type="PackedScene" uid="uid://dckrhrfb2qtnt" path="res://desert_islandLowLOD.tscn" id="3_f1x5y"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_h3bmn"]
 
@@ -75,45 +74,9 @@ orientation = 1
 [node name="Node3D" type="Node3D"]
 
 [node name="main_Middle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 material_override = SubResource("ShaderMaterial_rch83")
 mesh = SubResource("QuadMesh_1egad")
 
-[node name="Side" type="MeshInstance3D" parent="."]
-transform = Transform3D(-6.99382e-07, 0, -16, 0, 16, 0, 16, 0, -6.99382e-07, 0, -5, 100)
-material_override = SubResource("ShaderMaterial_rch83")
-mesh = ExtResource("3_cqb2r")
-
-[node name="Side2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-16, 0, -1.39876e-06, 0, 16, 0, 1.39876e-06, 0, -16, -100, -5, 100)
-material_override = SubResource("ShaderMaterial_rch83")
-mesh = ExtResource("4_cqb2r")
-
-[node name="Side3" type="MeshInstance3D" parent="."]
-transform = Transform3D(-6.99382e-07, 0, -16, 0, 16, 0, 16, 0, -6.99382e-07, 100, -5, 100)
-material_override = SubResource("ShaderMaterial_rch83")
-mesh = ExtResource("4_cqb2r")
-
-[node name="Side4" type="MeshInstance3D" parent="."]
-transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 100, -5, -100)
-material_override = SubResource("ShaderMaterial_rch83")
-mesh = ExtResource("4_cqb2r")
-
-[node name="Side5" type="MeshInstance3D" parent="."]
-transform = Transform3D(-6.99382e-07, 0, 16, 0, 16, 0, -16, 0, -6.99382e-07, 0, -5, -100)
-material_override = SubResource("ShaderMaterial_rch83")
-mesh = ExtResource("3_cqb2r")
-
-[node name="Side6" type="MeshInstance3D" parent="."]
-transform = Transform3D(16, 0, 0, 0, 16, 0, 0, 0, 16, 100, -5, 0)
-material_override = SubResource("ShaderMaterial_rch83")
-mesh = ExtResource("3_cqb2r")
-
-[node name="Side7" type="MeshInstance3D" parent="."]
-transform = Transform3D(-16, 0, -1.39876e-06, 0, 16, 0, 1.39876e-06, 0, -16, -100, -5, 0)
-material_override = SubResource("ShaderMaterial_rch83")
-mesh = ExtResource("3_cqb2r")
-
-[node name="Side8" type="MeshInstance3D" parent="."]
-transform = Transform3D(-6.99382e-07, 0, 16, 0, 16, 0, -16, 0, -6.99382e-07, -100, -5, -100)
-material_override = SubResource("ShaderMaterial_rch83")
-mesh = ExtResource("4_cqb2r")
+[node name="Node3D" parent="." instance=ExtResource("3_f1x5y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.334, 0)
