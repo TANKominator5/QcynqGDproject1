@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cy5p4gudxw2oa"]
+[gd_scene load_steps=13 format=3 uid="uid://cy5p4gudxw2oa"]
 
 [ext_resource type="PackedScene" uid="uid://cnxy4cpbtfhea" path="res://Plane1.tscn" id="1_glv2v"]
 [ext_resource type="PackedScene" uid="uid://d3xead8kuliu3" path="res://Ground.tscn" id="2_uu6xs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://d4fcn1qqfwbg0" path="res://scripts/Water Body/EntireWaterBody.cs" id="5_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://b61e7x5h2ec0e" path="res://airport2.tscn" id="5_fos0i"]
 [ext_resource type="PackedScene" uid="uid://b3yfbdiqso36p" path="res://desert_island.tscn" id="7_lgr22"]
+[ext_resource type="PackedScene" uid="uid://b7qh6ianqo5vl" path="res://dinosaur1.tscn" id="8_trn2v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3dxm6"]
 energy_multiplier = 1.5
@@ -46,7 +47,7 @@ volumetric_fog_ambient_inject = 1.6
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.0972559, -0.051454, -0.125186, -0.0126122, -0.156928, 0.0547022, -0.134759, -0.0224473, -0.0954667, 1.63996, 1.08515, -2.01891)
+transform = Transform3D(0.583536, -0.308723, -0.751117, -0.0756732, -0.941568, 0.328213, -0.808554, -0.134684, -0.5728, 1.63996, 1.08515, -2.01891)
 light_color = Color(1, 1, 0.941176, 1)
 light_energy = 0.8
 light_specular = 3.0
@@ -93,3 +94,6 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -20.6069)
 
 [node name="Land1" parent="." instance=ExtResource("7_lgr22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 252.916, -1.29377, 0.0999374)
+
+[node name="Dinosaur1" parent="." instance=ExtResource("8_trn2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222.73, 0.0434442, 8.06605)
