@@ -26,7 +26,7 @@ void vertex() {
 	float mix2 = mix(mix1, texture(vertex_wave3, world_pos.xz * noise_scale + wave_dir3).r, 0.5);
 	float mix3 = mix(mix2, texture(vertex_wave4, UV).r, 0.9);
 	height = mix(mix3, texture(vertex_wave5, UV).r, 0.4);
-	
+
 	VERTEX.y += height * height_scale;
 }
 

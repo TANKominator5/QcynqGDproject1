@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cy5p4gudxw2oa"]
+[gd_scene load_steps=14 format=3 uid="uid://cy5p4gudxw2oa"]
 
 [ext_resource type="PackedScene" uid="uid://cnxy4cpbtfhea" path="res://Plane1.tscn" id="1_glv2v"]
 [ext_resource type="PackedScene" uid="uid://d3xead8kuliu3" path="res://Ground.tscn" id="2_uu6xs"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b61e7x5h2ec0e" path="res://airport2.tscn" id="5_fos0i"]
 [ext_resource type="PackedScene" uid="uid://b3yfbdiqso36p" path="res://desert_island.tscn" id="7_lgr22"]
 [ext_resource type="PackedScene" uid="uid://b7qh6ianqo5vl" path="res://dinosaur1.tscn" id="8_trn2v"]
+[ext_resource type="PackedScene" uid="uid://bdsd2xubiaj0k" path="res://desert_island2.tscn" id="9_03owx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3dxm6"]
 energy_multiplier = 1.5
@@ -19,22 +20,21 @@ sky_material = SubResource("ProceduralSkyMaterial_3dxm6")
 background_mode = 2
 background_color = Color(0.118581, 0.118581, 0.118581, 1)
 sky = SubResource("Sky_uu6xs")
-ambient_light_energy = 2.0
-tonemap_mode = 3
+ambient_light_energy = 3.5
 ssao_enabled = true
 ssao_radius = 16.0
-ssao_power = 1.0
-ssao_detail = 5.0
-glow_enabled = true
+ssao_intensity = 3.0
+ssao_detail = 1.0
+ssao_sharpness = 0.85
 glow_normalized = true
 glow_intensity = 1.0
 fog_enabled = true
 fog_mode = 1
 fog_light_energy = 0.6
 fog_density = 1.0
-fog_depth_curve = 32.0
-fog_depth_begin = 200.0
-fog_depth_end = 1000.0
+fog_depth_curve = 0.420449
+fog_depth_begin = 123.1
+fog_depth_end = 820.5
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.001
 volumetric_fog_anisotropy = 0.4
@@ -47,18 +47,14 @@ volumetric_fog_ambient_inject = 1.6
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.583536, -0.308723, -0.751117, -0.0756732, -0.941568, 0.328213, -0.808554, -0.134684, -0.5728, 1.63996, 1.08515, -2.01891)
+transform = Transform3D(0.583536, -0.308723, -0.751117, -0.0756732, -0.941568, 0.328212, -0.808554, -0.134684, -0.572801, 2.80124, 4.37376, 1.4956)
 light_color = Color(1, 1, 0.941176, 1)
-light_energy = 0.8
 light_specular = 3.0
 light_bake_mode = 1
 shadow_enabled = true
-shadow_bias = 0.0
-shadow_normal_bias = 1.0
-shadow_reverse_cull_face = true
-directional_shadow_split_1 = 0.05
-directional_shadow_blend_splits = true
-directional_shadow_max_distance = 350.0
+shadow_blur = 0.6
+directional_shadow_split_1 = 0.02
+directional_shadow_max_distance = 500.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_r0du0")
@@ -97,3 +93,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 252.916, -1.29377, 0.0999374)
 
 [node name="Dinosaur1" parent="." instance=ExtResource("8_trn2v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222.73, 0.0434442, 8.06605)
+
+[node name="Node3D" parent="." instance=ExtResource("9_03owx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.949, -0.964446, 0)

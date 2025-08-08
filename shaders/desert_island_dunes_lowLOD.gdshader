@@ -7,7 +7,7 @@ uniform vec3 albedo : source_color;
 uniform float roughness : hint_range(0.0, 1.0) = 1.0;
 
 void vertex() {
-	
+
 }
 
 void fragment() {
