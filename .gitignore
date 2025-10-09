@@ -1,4 +1,3 @@
 #Directories
-.godot/editor/
-.godot/shader_cache/
+.godot
 .vs/

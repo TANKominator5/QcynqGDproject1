@@ -18,14 +18,14 @@ uniform vec2 wave_dir2 = vec2(0.0, 1.0);
 uniform float time_scale1 : hint_range(0.0, 1.0) = 0.025;
 uniform float time_scale2 : hint_range(0.0, 1.0) = 0.05;
 uniform float noise_scale = 0.1;
-uniform float height_scale : hint_range(0.0, 10.0) = 0.1;
+uniform float height_scale : hint_range(0.0, 10.0) = 0.15;
 
 varying float height;
 varying vec3 world_pos;
 
 uniform vec4 deep_color : source_color;
 uniform vec4 shallow_color: source_color;
-const float beers_law_value = 0.01;
+const float beers_law_value = 10.0;
 const float depth_offset = -0.75;
 
 void vertex() {
@@ -46,11 +46,10 @@ void fragment() {
     float depth_blend = exp((depth + VERTEX.z + depth_offset) * -beers_law_value);//Beer Lambert's law e^(-ad)
 	//depth + VERTEX.z(view space z of fragment) + dpeth_offset gives the material thickness
 	depth_blend = clamp(1.0 - depth_blend, 0.0, 1.0);//reversing the depth blend which is opacity now and clamping bet. 0 and 1
-	float depth_blend_power = clamp(depth_blend, 0.0, 1.0);
 
-	vec3 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, depth_blend_power * 2.5).rgb;//for a blurring effect depending on the depth
-	vec3 depth_color = mix(shallow_color.rgb, deep_color.rgb, depth_blend_power * 2.5);//depth is more depth_blend_power is more, effect of shallow color will be less
-	vec3 color = mix(screen_color * depth_color * 0.1, depth_color, depth_blend_power);
+	vec3 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, depth_blend * 2.5).rgb;//for a blurring effect depending on the depth
+	vec3 depth_color = mix(shallow_color.rgb, deep_color.rgb, depth_blend * 2.5);//depth is more depth_blend_power is more, effect of shallow color will be less
+	vec3 color = mix(screen_color * depth_color * 0.1, depth_color, depth_blend);
 
 	vec2 wave1 = wave_dir1 * TIME * time_scale1;
 	vec2 wave2 = wave_dir2 * TIME * time_scale2;
@@ -63,7 +62,7 @@ void fragment() {
 	color = mix(surface_color, color, 0.75);
 	vec3 normal_blend = mix(texture(texture_normal, world_pos.xz + wave1).rgb, texture(texture_normal2, world_pos.xz + wave2).rgb, 0.5);
 
-	ALBEDO = color * 1.3;
+	ALBEDO = color;
 	METALLIC = metallic;
 	ROUGHNESS = roughness;
 	NORMAL_MAP = normal_blend;
