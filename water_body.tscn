@@ -69,10 +69,8 @@ shader_parameter/time_scale1 = 0.15
 shader_parameter/time_scale2 = 0.05
 shader_parameter/noise_scale = 0.1
 shader_parameter/height_scale = 0.15
-shader_parameter/deep_color = Color(0.133583, 7.70092e-07, 0.691469, 1)
-shader_parameter/shallow_color = Color(0, 0.436343, 0.972778, 1)
-shader_parameter/beers_law_value = 10.0
-shader_parameter/depth_offset = -0.75
+shader_parameter/deep_color = Color(0.110094, 9.62615e-08, 0.59849, 1)
+shader_parameter/shallow_color = Color(2.88785e-06, 0.329609, 0.749521, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D"]
 transform = Transform3D(36, 0, 0, 0, 36, 0, 0, 0, 36, 0, 0, 0)

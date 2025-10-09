@@ -25,8 +25,8 @@ varying vec3 world_pos;
 
 uniform vec4 deep_color : source_color;
 uniform vec4 shallow_color: source_color;
-uniform float beers_law_value = 2;
-uniform float depth_offset = -0.75;
+const float beers_law_value = 0.01;
+const float depth_offset = -0.75;
 
 void vertex() {
 	world_pos = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
@@ -46,11 +46,11 @@ void fragment() {
     float depth_blend = exp((depth + VERTEX.z + depth_offset) * -beers_law_value);//Beer Lambert's law e^(-ad)
 	//depth + VERTEX.z(view space z of fragment) + dpeth_offset gives the material thickness
 	depth_blend = clamp(1.0 - depth_blend, 0.0, 1.0);//reversing the depth blend which is opacity now and clamping bet. 0 and 1
-	float depth_blend_power = clamp(pow(depth_blend, 2.0), 0.0, 1.0);
+	float depth_blend_power = clamp(depth_blend, 0.0, 1.0);
 
 	vec3 screen_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, depth_blend_power * 2.5).rgb;//for a blurring effect depending on the depth
 	vec3 depth_color = mix(shallow_color.rgb, deep_color.rgb, depth_blend_power * 2.5);//depth is more depth_blend_power is more, effect of shallow color will be less
-	vec3 color = mix(screen_color * depth_color, depth_color * 0.25, depth_blend_power * 0.5);
+	vec3 color = mix(screen_color * depth_color * 0.1, depth_color, depth_blend_power);
 
 	vec2 wave1 = wave_dir1 * TIME * time_scale1;
 	vec2 wave2 = wave_dir2 * TIME * time_scale2;
