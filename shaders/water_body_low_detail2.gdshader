@@ -61,7 +61,8 @@ void fragment() {
 	
 	ALBEDO = color * 1.5;
 	ROUGHNESS = roughness;
-	NORMAL_MAP = NORMAL_MAP * 1.36;
+	NORMAL_MAP = NORMAL_MAP * 1.345;
+	SPECULAR *= 5.0;
 }
 
 //void light() {
