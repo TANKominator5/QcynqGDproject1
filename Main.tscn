@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://cy5p4gudxw2oa"]
 
 [ext_resource type="PackedScene" uid="uid://cnxy4cpbtfhea" path="res://Plane1.tscn" id="1_glv2v"]
-[ext_resource type="Texture2D" uid="uid://bg61o63shoy3k" path="res://Skybox_data/qwantani_moon_noon_puresky_1k_low.hdr" id="1_lgr22"]
 [ext_resource type="Shader" uid="uid://ly8808qtfu8b" path="res://shaders/sky_shader.gdshader" id="1_trn2v"]
+[ext_resource type="Texture2D" uid="uid://bv2i0flooksuv" path="res://Skybox_data/qwantani_moon_noon_puresky_2k.hdr" id="2_03owx"]
 [ext_resource type="PackedScene" uid="uid://d3xead8kuliu3" path="res://Ground.tscn" id="2_uu6xs"]
 [ext_resource type="Script" uid="uid://co5ihfqygr5ap" path="res://scripts/camera_scripts/camera1.cs" id="4_cm0pq"]
 [ext_resource type="PackedScene" uid="uid://dv3b7j3o602pj" path="res://entire_water_body.tscn" id="4_fos0i"]
@@ -12,8 +12,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03owx"]
 shader = ExtResource("1_trn2v")
-shader_parameter/source_panorama = ExtResource("1_lgr22")
-shader_parameter/exposure = 1.0
+shader_parameter/source_panorama = ExtResource("2_03owx")
+shader_parameter/exposure = 0.7
 
 [sub_resource type="Sky" id="Sky_uu6xs"]
 sky_material = SubResource("ShaderMaterial_03owx")
@@ -28,15 +28,17 @@ ssr_fade_in = 6.33364
 fog_enabled = true
 fog_light_color = Color(0.529142, 0.56407, 0.618957, 1)
 fog_light_energy = 0.5
-fog_sky_affect = 0.6
+fog_density = 0.004
+fog_sky_affect = 0.65
+fog_height_density = 0.2
 fog_depth_begin = 1000.0
 fog_depth_end = 3000.0
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.006
+volumetric_fog_density = 0.004
 volumetric_fog_albedo = Color(0.529412, 0.564706, 0.619608, 1)
 volumetric_fog_emission = Color(1, 1, 1, 1)
 volumetric_fog_emission_energy = 0.3
 volumetric_fog_length = 80.0
+volumetric_fog_sky_affect = 0.0
 adjustment_enabled = true
 adjustment_brightness = 1.2
 adjustment_contrast = 1.2
@@ -52,17 +54,17 @@ environment = SubResource("Environment_r0du0")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.692612, -0.661417, -0.287779, 0.0930405, -0.477555, 0.873662, -0.715285, 0.578333, 0.392298, 9.19282, 2.40568, 28.6544)
 light_energy = 0.35
-light_specular = 0.5
+light_specular = 1.5
 light_bake_mode = 1
 shadow_enabled = true
-shadow_bias = 0.01
-shadow_normal_bias = 0.0
+shadow_bias = 0.0
+shadow_normal_bias = 10.0
 shadow_reverse_cull_face = true
-directional_shadow_split_1 = 0.125
-directional_shadow_split_2 = 0.25
-directional_shadow_split_3 = 0.625
+directional_shadow_split_1 = 0.065
+directional_shadow_split_2 = 0.146
+directional_shadow_split_3 = 0.264
 directional_shadow_blend_splits = true
-directional_shadow_max_distance = 200.0
+directional_shadow_max_distance = 250.0
 
 [node name="OurPlane" type="Node3D" parent="."]
 transform = Transform3D(0.0019878, 0, -0.0999803, 0, 0.1, 0, 0.0999803, 0, 0.0019878, -20.944, 0.352898, -21.0939)

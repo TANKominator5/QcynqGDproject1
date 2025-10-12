@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv3b7j3o602pj"]
+[gd_scene load_steps=6 format=3 uid="uid://dv3b7j3o602pj"]
 
 [ext_resource type="PackedScene" uid="uid://bq6ryns214l5e" path="res://water_body.tscn" id="2_edkd6"]
 [ext_resource type="PackedScene" uid="uid://bmlvl7b0e6s18" path="res://water_body_low_detail2.tscn" id="2_igpon"]
+[ext_resource type="Shader" uid="uid://y7mu8pvpagod" path="res://shaders/single_color_shader.gdshader" id="3_edkd6"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_igpon"]
+size = Vector2(500, 500)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uqqic"]
+render_priority = 0
+shader = ExtResource("3_edkd6")
+shader_parameter/albedo = Color(0.312992, 0.39683, 0.994877, 1)
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
@@ -58,37 +67,97 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, -178)
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 178)
 
 [node name="MeshInstance3D18" parent="." instance=ExtResource("2_igpon")]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -400, 0, -133)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -400, -0.3, -133)
 
 [node name="MeshInstance3D19" parent="." instance=ExtResource("2_igpon")]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -400, 0, 133)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -400, -0.3, 133)
 
 [node name="MeshInstance3D20" parent="." instance=ExtResource("2_igpon")]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -400, 0, 400)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -400, -0.3, 400)
 
 [node name="MeshInstance3D21" parent="." instance=ExtResource("2_igpon")]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -133, 0, 400)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -133, -0.3, 400)
 
 [node name="MeshInstance3D22" parent="." instance=ExtResource("2_igpon")]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 133, 0, 400)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 133, -0.3, 400)
 
 [node name="MeshInstance3D23" parent="." instance=ExtResource("2_igpon")]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 400, 0, 400)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 400, -0.3, 400)
 
 [node name="MeshInstance3D24" parent="." instance=ExtResource("2_igpon")]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 400, 0, 133)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 400, -0.3, 133)
 
 [node name="MeshInstance3D25" parent="." instance=ExtResource("2_igpon")]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 400, 0, -133)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 400, -0.3, -133)
 
 [node name="MeshInstance3D26" parent="." instance=ExtResource("2_igpon")]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 400, 0, -400)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 400, -0.3, -400)
 
 [node name="MeshInstance3D27" parent="." instance=ExtResource("2_igpon")]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 133, 0, -400)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 133, -0.3, -400)
 
 [node name="MeshInstance3D28" parent="." instance=ExtResource("2_igpon")]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -133.742, 0, -400)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -133.742, -0.3, -400)
 
 [node name="MeshInstance3D29" parent="." instance=ExtResource("2_igpon")]
-transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -400, 0, -400)
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -400, -0.3, -400)
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 794.474, -0.1, -266.545)
+mesh = SubResource("PlaneMesh_igpon")
+surface_material_override/0 = SubResource("ShaderMaterial_uqqic")
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 793.985, -0.1, 267.076)
+mesh = SubResource("PlaneMesh_igpon")
+surface_material_override/0 = SubResource("ShaderMaterial_uqqic")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 793.985, -0.1, 800.406)
+mesh = SubResource("PlaneMesh_igpon")
+surface_material_override/0 = SubResource("ShaderMaterial_uqqic")
+
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 259.944, -0.1, 800.406)
+mesh = SubResource("PlaneMesh_igpon")
+surface_material_override/0 = SubResource("ShaderMaterial_uqqic")
+
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, -266.385, -0.1, 800.406)
+mesh = SubResource("PlaneMesh_igpon")
+surface_material_override/0 = SubResource("ShaderMaterial_uqqic")
+
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, -800.034, -0.1, 800.406)
+mesh = SubResource("PlaneMesh_igpon")
+surface_material_override/0 = SubResource("ShaderMaterial_uqqic")
+
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, -800.034, -0.1, 265.734)
+mesh = SubResource("PlaneMesh_igpon")
+surface_material_override/0 = SubResource("ShaderMaterial_uqqic")
+
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, -800.034, -0.1, -266.555)
+mesh = SubResource("PlaneMesh_igpon")
+surface_material_override/0 = SubResource("ShaderMaterial_uqqic")
+
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, -800.034, -0.1, -799.532)
+mesh = SubResource("PlaneMesh_igpon")
+surface_material_override/0 = SubResource("ShaderMaterial_uqqic")
+
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, -265.729, -0.1, -799.532)
+mesh = SubResource("PlaneMesh_igpon")
+surface_material_override/0 = SubResource("ShaderMaterial_uqqic")
+
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 267.846, -0.1, -799.532)
+mesh = SubResource("PlaneMesh_igpon")
+surface_material_override/0 = SubResource("ShaderMaterial_uqqic")
+
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.07, 0, 0, 0, 1.07, 0, 0, 0, 1.07, 800.793, -0.1, -799.532)
+mesh = SubResource("PlaneMesh_igpon")
+surface_material_override/0 = SubResource("ShaderMaterial_uqqic")

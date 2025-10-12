@@ -20,9 +20,9 @@ uniform vec2 normal_wave_dir2 = vec2(0.0, 1.0);
 uniform float normal_time_scale1 : hint_range(0.0, 1.0) = 0.025;
 uniform float normal_time_scale2 : hint_range(0.0, 1.0) = 0.05;
 
-uniform vec2 vertex_wave_dir1 = vec2(1.0, 1.0);
-uniform vec2 vertex_wave_dir2 = vec2(0.0, 1.0);
-uniform vec2 vertex_wave_dir3 = vec2(1.0, 0.0);
+uniform vec2 vertex_wave_dir1 = vec2(10.0, 10.0);
+uniform vec2 vertex_wave_dir2 = vec2(0.0, 10.0);
+uniform vec2 vertex_wave_dir3 = vec2(10.0, 0.0);
 uniform float vertex_time_scale1 : hint_range(0.0, 1.0) = 0.05;
 uniform float vertex_time_scale2 : hint_range(0.0, 1.0) = 0.05;
 uniform float vertex_time_scale3 : hint_range(0.0, 1.0) = 0.05;
@@ -48,15 +48,16 @@ void vertex() {
 	//first pass of mixing
 	mix_texture = mix(texture(vertex_wave1, world_pos.xz * noise_scale + wave1), texture(vertex_wave2, world_pos.xz * noise_scale + wave2), 0.5);
 	//2nd pass of mixing
-	mix_texture = mix(mix_texture, texture(vertex_wave3, world_pos.xz * noise_scale + wave3), 0.3);
+	mix_texture = mix(mix_texture, texture(vertex_wave3, world_pos.xz * noise_scale + wave3), 0.5);
 	height = mix_texture.r;
 	
-	VERTEX.y += height * height_scale;
+	VERTEX.y += height * (height_scale);
 }
 
 float fresnel_value(float amt, vec3 normal, vec3 view){
 	return pow((1.0 - clamp(dot(normalize(normal), normalize(view)), 0.0, 1.0)), amt);
 }
+
 void fragment() {
 	//for the depth blending
 	float depth_texture = texture(DEPTH_TEXTURE, SCREEN_UV).r * 2.0 - 1.0;//DEPTH_TEXTURE is the depth buffer, SCREEN_UV is the uv coord in screen space

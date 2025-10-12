@@ -71,7 +71,8 @@ Key_D={
 
 [rendering]
 
-lights_and_shadows/directional_shadow/soft_shadow_filter_quality=4
+lights_and_shadows/directional_shadow/size=8192
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=5
 lights_and_shadows/directional_shadow/16_bits=false
 reflections/reflection_atlas/reflection_size=512
 global_illumination/voxel_gi/quality=1
