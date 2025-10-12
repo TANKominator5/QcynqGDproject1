@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj3bvtby0gw2c"
-path.s3tc="res://.godot/imported/texture_Dragon.png-18cdb589a45bf33ae230d6c90388570f.s3tc.ctex"
+uid="uid://bg61o63shoy3k"
+path.bptc="res://.godot/imported/qwantani_moon_noon_puresky_1k_low.hdr-2f106acfc25a3d11f65970cbe2301ba1.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://models/Dragons/texture_Dragon.png"
-dest_files=["res://.godot/imported/texture_Dragon.png-18cdb589a45bf33ae230d6c90388570f.s3tc.ctex"]
+source_file="res://Skybox_data/qwantani_moon_noon_puresky_1k_low.hdr"
+dest_files=["res://.godot/imported/qwantani_moon_noon_puresky_1k_low.hdr-2f106acfc25a3d11f65970cbe2301ba1.bptc.ctex"]
 
 [params]
 

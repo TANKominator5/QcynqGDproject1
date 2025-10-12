@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://b7qh6ianqo5vl"]
+
+[ext_resource type="ArrayMesh" uid="uid://bqiwlc255k3dg" path="res://models/Dragons/Dragon3.obj" id="1_05ije"]
+[ext_resource type="Shader" uid="uid://coj3wskhg8w4o" path="res://shaders/fang_disabled_culling.gdshader" id="2_sehim"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mwt43"]
+render_priority = 0
+shader = ExtResource("2_sehim")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_igh41"]
+render_priority = 0
+shader = ExtResource("2_sehim")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_redev"]
+render_priority = 0
+shader = ExtResource("2_sehim")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6jtl6"]
+render_priority = 0
+shader = ExtResource("2_sehim")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_igihv"]
+render_priority = 0
+shader = ExtResource("2_sehim")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6d827"]
+render_priority = 0
+shader = ExtResource("2_sehim")
+
+[node name="DragonScene" type="Node3D"]
+
+[node name="Dragon3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422036, 0, 2.33592)
+mesh = ExtResource("1_05ije")
+surface_material_override/75 = SubResource("ShaderMaterial_mwt43")
+surface_material_override/76 = SubResource("ShaderMaterial_igh41")
+surface_material_override/77 = SubResource("ShaderMaterial_redev")
+surface_material_override/78 = SubResource("ShaderMaterial_6jtl6")
+surface_material_override/79 = SubResource("ShaderMaterial_igihv")
+surface_material_override/80 = SubResource("ShaderMaterial_6d827")
